@@ -1,0 +1,430 @@
+.ProseMirror {
+    position: relative;
+    /* ========================================================= */
+    /* Basic */
+
+    .prose--deco--bold {
+        color: var(--bulma-strong-color);
+        font-weight: var(--bulma-strong-weight);
+    } 
+    /* .prose--deco--italic {} */
+    /* .prose--deco--underline {} */
+
+    .prose--deco--strikethrough {
+        text-decoration: line-through;
+    }
+
+    .prose--deco--highlight {
+        background-color: var(--bulma-code-background);
+        border-radius: .5em;
+        color: var(--bulma-code);
+        font-size: var(--bulma-code-size);
+        font-weight: var(--bulma-code-weight);
+        padding: var(--bulma-code-padding);
+    }
+
+    .prose--deco--table-row .prose--deco--highlight {
+        padding: 0;
+    }
+
+    .prose--deco--tag {
+        cursor: pointer;
+    }
+
+    .prose--deco--hr {
+        border-bottom: solid 1px;
+        display: block;
+        line-height: 1px;
+        text-align: right;
+    }
+
+    /* ========================================================= */
+    /* Heading */
+
+    .prose--deco--heading {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .prose--deco--heading--hidden {
+        display: none;
+    }
+
+    .prose--deco--heading--widget {
+        display: inline-block;
+        border: solid 1px hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+        width: 25px;
+        height: 25px;
+        border-radius: .5em;        
+    }
+
+    .prose--deco--heading--widget::before {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 1em;
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+    .prose--deco--heading--1 .prose--deco--heading--widget::before{
+        content: "H1";
+    }
+
+    .prose--deco--heading--2 .prose--deco--heading--widget::before{
+        content: "H2";
+    }
+
+    .prose--deco--heading--3 .prose--deco--heading--widget::before{
+        content: "H3";
+    }
+
+    .prose--deco--heading--4 .prose--deco--heading--widget::before{
+        content: "H4";
+    }
+
+    .prose--deco--heading--5 .prose--deco--heading--widget::before {
+        content: "H5";
+    }
+
+    .prose--deco--heading--folded {
+        display: none !important;
+    }
+
+    .prose--deco--heading + .prose--deco--heading--folded--opening {
+        display: block !important;
+        color: hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        border: solid 1px hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        user-select: none;
+        border-radius: 4px;
+        cursor: pointer;
+        padding: 0 5px;
+    }
+
+    /* ========================================================= */
+    /* Counter/Proportion */
+
+    /* .prose--deco--counter--left, .prose--deco--counter--right, .prose--deco--proportion--left, .prose--deco--proportion--right {} */
+
+    .prose--deco--counter--left::before, .prose--deco--proportion--left::before,
+    .prose--deco--counter--right::before, .prose--deco--proportion--right::before {
+        color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+    }
+
+    .prose--deco--counter--left::before, .prose--deco--proportion--left::before  {
+        content: "◀️";
+    }
+
+    .prose--deco--counter--right::before, .prose--deco--proportion--right::before {
+        content: "▶️";
+    }
+
+    /* ========================================================= */
+    /* URL */
+
+    .prose--deco--url {
+        cursor: pointer !important;
+        position: relative;
+        color: hsl(var(--bulma-link-h), var(--bulma-link-s), var(--bulma-link-l));
+    }
+
+    .prose--deco--url::before {
+        content: 'Hold Cmd/Alt and click to open';
+        display: inline-block;
+        width: 140px;
+        padding-top: 5px;
+        text-align: center;
+        position: absolute;
+        left: calc(-70px + 50%);
+        bottom: calc(100% - 18px);
+        font-size: 8px;
+        opacity: 0;
+        transition: all 0.5s ease;
+        cursor: pointer;
+        border-radius: .5em;
+        color: hsl(var(--bulma-white-h), var(--bulma-white-s), var(--bulma-white-l));
+        background: hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-dark-l));
+    }
+
+    .prose--deco--url:hover::before {
+        bottom: 100%;
+        opacity: 1;
+    }
+
+    .prose--deco--link--bracket {
+        font-style: italic;
+        opacity: 0.5;
+    }
+
+    .prose--deco--link {
+        border: none;
+        background: transparent;
+        margin: 0;
+        padding: 0;
+        display: inline;
+        text-align: center;
+        outline: none;
+    }
+
+
+    /* ========================================================= */
+    /* IMG */
+
+    .prose--deco--img {
+        max-width: 200px;
+        display: inline-block;
+    }
+
+    /* ========================================================= */
+    /* Quote */
+
+    .prose--deco--quote {
+        color: transparent;
+        border-left: 4px solid var(--bulma-code);
+        padding: 1px;
+    }
+
+    /* ========================================================= */
+    /* Bullet */
+
+    .prose--deco--bullet {
+        color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+    }
+
+    /* ========================================================= */
+    /* Ordered */
+
+    .prose--deco--ordered {
+        color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+    }
+
+    /* ========================================================= */
+    /* Duration */
+
+    .prose--deco--duration {
+        color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+        border-bottom: dotted 1px hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+    }
+
+    .prose--deco--duration--button {
+        display: none;
+        cursor: pointer;
+    }
+
+    /* ========================================================= */
+    /* Date */
+
+    .prose--deco--date {
+        color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+    }
+
+
+    /* ========================================================= */
+    /* Datetime */
+
+    .prose--deco--datetime {
+        color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+    }
+
+    /* ========================================================= */
+    /* Table */
+
+    .prose--deco--table-row {
+        color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+        font-family: monospace !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .prose--deco--table-row:hover {
+        font-weight: bold;
+        overflow: visible;
+        text-overflow: nowrap;
+    }
+
+    /* ========================================================= */
+    /* Code */
+
+    .prose--deco--code {
+        z-index: 2;
+        color: transparent;
+        white-space: pre;
+        position: relative;
+        font-family: monospace;
+        line-height: 1.3;
+    }
+
+    .prose--deco--code--highlight {
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: -2;
+
+        width: 100%;
+        margin: 0;
+        line-height: 1.3;
+
+        background-color: transparent;
+        font-family: monospace;
+        padding: 0;
+        font-size: inherit;
+    }
+
+    /* ========================================================= */
+    /* Checkbox */
+
+    /* .prose--deco--checkbox {} */
+
+    .prose--deco--checkbox::before {
+        color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+        border: 1px solid hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+        font-size: 12px;
+        width: 20px;
+        border-radius: .5em;
+        display: inline-block;
+        text-align: center;
+        content: "-";
+    }
+
+    .prose--deco--checkbox.prose--deco--checkbox--checked::before {        
+        font-size: 12px;
+        content: "+";
+    }
+
+    /* ========================================================= */
+    /* Todo */
+
+    .prose--deco--todo {
+        display: inline-block;
+        font-family: monospace;
+    }
+
+    .prose--deco--todo::before {
+        content: "-";
+        vertical-align: middle;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+        border: 1px solid hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-l));
+        border-radius: .5em;
+        overflow: hidden;
+    }
+
+    .prose--deco--todo.prose--deco--todo--checked::before {
+        content: "+";
+    }
+
+    /* ========================================================= */
+    /* Variables */
+
+    .prose--deco--var {
+        display: 'inline-block';
+        background-color: var(--bulma-code-background);
+        border-radius: .5em;
+        color: var(--bulma-code);
+        font-size: var(--bulma-code-size);
+        font-weight: var(--bulma-code-weight);
+        padding: var(--bulma-code-padding);
+    }
+
+    .prose--deco--var:focus {
+        background-color: blue;
+    }
+
+    [data-tooltip]:hover {
+        position: relative;
+    }
+    [data-tooltip]:hover::before {
+        all: initial;
+        font-family: Arial, Helvetica, sans-serif;
+        display: inline-block;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        content: attr(data-tooltip);
+        color: #f9f9f9;
+        position: absolute;
+        bottom: 100%;
+        width: 100px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 14px;
+        opacity: 0.8;
+    }
+    [data-tooltip]:hover::after {
+        all: initial;
+        display: inline-block;
+        width: 0; 
+        height: 0; 
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;		  
+        border-top: 10px solid hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        opacity: 0.8;
+        position: absolute;
+        bottom: 100%;
+        content: '';
+        left: 50%;
+        transform: translate(-50%, 0);
+        margin-bottom: 5px;
+    }
+
+    /* ========================================================= */
+    /* Folded */
+
+    .prose--deco--folded {
+        display: none;
+    }
+
+    .prose--deco--folded--opening {
+        display: block;
+        cursor: pointer;
+        padding: 0 5px;
+        color: hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        border: solid 1px hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        user-select: none;
+        border-radius: 4px;
+    }
+
+    .prose--deco--opened {
+        border-left: 1px solid hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        border-right: 1px solid hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        user-select: none;
+    }
+
+    .prose--deco--opened--closing {
+        color: hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        border: 1px solid hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        border-top: none;
+        border-radius: 4px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    .prose--deco--opened--opening {
+        display: block;
+        cursor: pointer;
+        /* margin-left: -30px; */
+        padding: 0 5px;
+        color: hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        border: solid 1px hsl(var(--bulma-info-h), var(--bulma-info-s), var(--bulma-info-l));
+        user-select: none;
+        border-bottom: none;
+        border-radius: 4px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .prose--deco--opened--opening:hover,
+    .prose--deco--folded--opening:hover {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .hidden {
+        display: none;
+    }
+}

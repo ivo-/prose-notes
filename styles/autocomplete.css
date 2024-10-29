@@ -1,0 +1,30 @@
+.autocomplete {
+  color: var(--bulma-code);
+  padding: 2px 5px;
+}
+
+.autocomplete--list {
+  border-radius: .5em;
+  position: absolute;  
+  border: 1px solid #333;
+  min-width: 300px;  
+  transform: translateY(-1px);
+  background-color: var(--bulma-code-background);
+  color: var(--bulma-code);
+  font-size: var(--bulma-code-size);
+  font-weight: var(--bulma-code-weight);
+}
+/* You actually should do the UI with a mouse enter event rather than css hover */
+.autocomplete--list:hover .selected {
+  color: var(--bulma-code-background);
+  background-color: var(--bulma-code);
+}
+.autocomplete--list > div {
+  padding: 0 5px;
+  border-radius: .5em;
+}
+.autocomplete--list:hover > div:hover,
+.autocomplete--selected {
+  color: var(--bulma-code-background);
+  background-color: var(--bulma-code);
+}
